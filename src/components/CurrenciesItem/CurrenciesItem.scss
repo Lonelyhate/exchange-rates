@@ -1,0 +1,50 @@
+.currency-item{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    &:hover{
+        background-color: aliceblue;
+        .currency-item__tooltip{
+            opacity: 1;
+            pointer-events: all;
+            visibility: visible;
+        }
+    }
+    &__text{
+        padding: 8px;
+        font-size: 16px;
+        pointer-events: none;
+    }
+    &__tooltip{
+        background-color: rgba(0, 0, 0, 0.7);
+        font-size: 12px;
+        color: #fff;
+        padding: 5px;
+        border-radius: 4px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        transform: translate(-50%, 30px);
+        z-index: 5;
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-1px, -9px);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 10px solid rgba(0, 0, 0, 0.7);
+            z-index: 4;
+        }
+    }
+}
